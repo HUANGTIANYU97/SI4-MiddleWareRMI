@@ -12,6 +12,7 @@ public class Quit extends Command<PDPublicAPI> {
     }
 
     public void execute() throws Exception {
+        exit(0);
     }
 
     public String describe() {

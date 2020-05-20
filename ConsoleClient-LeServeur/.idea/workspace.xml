@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c76c44b-93bf-4f10-9753-97cb49fc3ad6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ConsoleClient-LeServeur/META-INF/ConsoleClient-LeServeur.kotlin_module" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +79,7 @@
       <updated>1589662416960</updated>
       <workItem from="1589662418211" duration="575000" />
       <workItem from="1589663616241" duration="41553000" />
-      <workItem from="1590004469594" duration="2118000" />
+      <workItem from="1590004469594" duration="2431000" />
     </task>
     <servers />
   </component>

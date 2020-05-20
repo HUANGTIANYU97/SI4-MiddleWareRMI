@@ -14,6 +14,7 @@ public class VisualiseGroup extends Command<PDPublicAPI> {
     private String pseudo = null;
     private String login = null;
     private String password = null;
+    private Boolean exit = true;
 
 
     @Override
@@ -41,7 +42,7 @@ public class VisualiseGroup extends Command<PDPublicAPI> {
         {
             java.io.BufferedReader stdin =
                     new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
-            while (true)
+            while (exit)
             {
 
                 String s = stdin.readLine();
@@ -49,11 +50,13 @@ public class VisualiseGroup extends Command<PDPublicAPI> {
 
                 if(s == null){
                     StaticInfo.getChatInterface().getGroupDisconnection(idTopic);
-                    exit();
+                    exit = false;
+                    //exit();
                 }
                 else if (s.equals("exit")){
                     StaticInfo.getChatInterface().getGroupDisconnection(idTopic);
-                    exit();
+                    exit = false;
+                    //exit();
                 }
                 else if (s.length()>0)
                 { String msg="";

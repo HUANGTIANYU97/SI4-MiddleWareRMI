@@ -65,7 +65,7 @@ public class Connect extends Command<PDPublicAPI> {
                 shell.system = new PDPublicAPI();
                 shell.invite = "Discord";
                 shell.register(
-                        Quit.class,
+                        //Quit.class,
                         GetListGroup.class,
                         GetMyListGroup.class,
                         VisualiseGroup.class
