@@ -1,0 +1,41 @@
+package interfaces;
+
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
+public class ConnectionObject extends UnicastRemoteObject
+        implements ConnectionInterface {
+
+    List<User> usersList;
+
+    public ConnectionObject() throws RemoteException {
+        usersList = Chat.getChat().getAllUser();
+    }
+
+    public ConnectionObject(int port) throws RemoteException {
+        super(port);
+    }
+
+    public void echo() throws RemoteException, InterruptedException {
+        Thread.sleep(10000);
+    }
+
+    public ChatInterface connect(String userLogin, String passwordLogin, NotifyInterface notifyInterface) throws RemoteException, InterruptedException{
+        for (User user : usersList){
+            if (user.getLogin().equals(userLogin) && user.getPassword().equals(passwordLogin)){
+                ChatObject messagerieObject = new ChatObject(user);
+                user.setNotify(notifyInterface);
+                System.out.println(user.getLogin() + " is now connected");
+                return messagerieObject;
+            }
+        }
+        return null;
+
+    }
+
+    public void disconnect(String userLogin) throws RemoteException, InterruptedException{
+        System.out.println(userLogin + " is now disconnected");
+    }
+} 
