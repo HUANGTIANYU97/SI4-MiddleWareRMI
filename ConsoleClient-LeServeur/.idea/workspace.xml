@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c76c44b-93bf-4f10-9753-97cb49fc3ad6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ConsoleClient/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ConsoleClient-LeServeur/interfaces/ChatObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ConsoleClient-LeServeur/interfaces/ChatObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ConsoleClient-LeServeur/interfaces/MessageManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ConsoleClient-LeServeur/interfaces/MessageManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/ChatObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/ChatObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/MessageManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/MessageManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient/bin/META-INF/ConsoleClient.kotlin_module" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +87,7 @@
       <workItem from="1589662418211" duration="575000" />
       <workItem from="1589663616241" duration="41553000" />
       <workItem from="1590004469594" duration="2431000" />
+      <workItem from="1590007557544" duration="4988000" />
     </task>
     <servers />
   </component>
@@ -91,7 +99,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

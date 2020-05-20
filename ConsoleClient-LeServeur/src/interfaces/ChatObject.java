@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ChatObject extends UnicastRemoteObject implements ChatInterface {
 
@@ -84,16 +86,53 @@ public class ChatObject extends UnicastRemoteObject implements ChatInterface {
 
     @Override
     public void receiveMessage(String message) throws RemoteException, InterruptedException{
-        mm.addMessage(message);
-        System.out.println(message);
+        ExecutorService pool = Executors.newCachedThreadPool();
+        Runnable run = new Runnable() {
+            public void run() {
+                try {
+                    System.out.println(Thread.currentThread().getName()+" in use");
+                    //new Thread().sleep(1000);
+                    mm.addMessage(message);
+                    System.out.println(Thread.currentThread().getName()+" finish use");
+                    System.out.println(message);
+                    //System.out.println(Thread.currentThread().getName()+" finish use");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        pool.execute(run);
+        pool.shutdown();
     }
 
     @Override
     public void notifyMessage(String message) throws RemoteException, InterruptedException{
-        for(User u : mm.getConnectedClients()){
+        /*for(User u : mm.getConnectedClients()){
+            new Thread().sleep(1000);
             u.getNotify().getNotify(message);
             mm.updateUnreadMessage(u);
+            System.out.println(Thread.currentThread().getName()+" to "+ u.getPseudo());
+        }*/
+
+        ExecutorService pool = Executors.newCachedThreadPool();
+        for (User u : mm.getConnectedClients()) {
+            Runnable run = new Runnable() {
+                public void run() {
+                    try {
+                        new Thread().sleep(1000);
+                        u.getNotify().getNotify(message);
+                        mm.updateUnreadMessage(u);
+                        //模拟耗时操作
+                        System.out.println(Thread.currentThread().getName()+" to "+ u.getPseudo());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            pool.execute(run);
         }
+        //System.out.println("[1] done!");
+        pool.shutdown();
     }
 
     @Override

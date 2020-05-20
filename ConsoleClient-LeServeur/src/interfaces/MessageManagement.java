@@ -27,7 +27,8 @@ public class MessageManagement {
         return messageManagement;
     }
 
-    public void addMessage(String message){
+    public synchronized void addMessage(String message) throws InterruptedException {
+        new Thread().sleep(1000);
         messages.add(message);
         System.out.println("Message add:" + message);
     }
