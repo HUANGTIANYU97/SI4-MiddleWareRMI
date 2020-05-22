@@ -86,23 +86,9 @@ public class ChatObject extends UnicastRemoteObject implements ChatInterface {
 
     @Override
     public void receiveMessage(String message) throws RemoteException, InterruptedException{
-        ExecutorService pool = Executors.newCachedThreadPool();
-        Runnable run = new Runnable() {
-            public void run() {
-                try {
-                    System.out.println(Thread.currentThread().getName()+" in use");
-                    //new Thread().sleep(1000);
-                    mm.addMessage(message);
-                    System.out.println(Thread.currentThread().getName()+" finish use");
-                    System.out.println(message);
-                    //System.out.println(Thread.currentThread().getName()+" finish use");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        pool.execute(run);
-        pool.shutdown();
+        mm.addMessage(message);
+        System.out.println(message);
+        notifyMessage(message);
     }
 
     @Override
@@ -119,10 +105,9 @@ public class ChatObject extends UnicastRemoteObject implements ChatInterface {
             Runnable run = new Runnable() {
                 public void run() {
                     try {
-                        new Thread().sleep(1000);
+                        //new Thread().sleep(1000);
                         u.getNotify().getNotify(message);
                         mm.updateUnreadMessage(u);
-                        //模拟耗时操作
                         System.out.println(Thread.currentThread().getName()+" to "+ u.getPseudo());
                     } catch (Exception e) {
                         e.printStackTrace();

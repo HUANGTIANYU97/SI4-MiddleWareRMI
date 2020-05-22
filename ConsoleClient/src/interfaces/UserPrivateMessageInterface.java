@@ -6,7 +6,7 @@ public interface UserPrivateMessageInterface extends Remote{
 
     public void sendMessage(String pseudo) throws RemoteException, InterruptedException;
 
-    public void notifyMessage(String message) throws RemoteException, InterruptedException;
+    public void notifyMessage(String message,String pseudo) throws RemoteException, InterruptedException;
 
     public String getPseudoTo(String login) throws RemoteException, InterruptedException;
 

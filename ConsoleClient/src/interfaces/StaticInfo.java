@@ -6,6 +6,7 @@ public class StaticInfo {
     private static String login;
     private static String password;
     private static ConnectionInterface connectionInterface;
+    private static UserPrivateMessageInterface privateInterface;
 
     public static ChatInterface getChatInterface() {
         return chatInterface;
@@ -34,4 +35,8 @@ public class StaticInfo {
     public static void setConnectionInterface(ConnectionInterface ci){connectionInterface = ci;}
 
     public static ConnectionInterface getConnectionInterface(){return connectionInterface;}
+
+    public static UserPrivateMessageInterface getPrivateInterface(){return privateInterface;}
+
+    public static void setPrivateInterface(UserPrivateMessageInterface p){privateInterface = p;}
 }

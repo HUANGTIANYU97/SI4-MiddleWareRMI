@@ -7,7 +7,6 @@ public class Chat {
 
     private  List<String> allGroups;
     private  Map<User, List<String>> groupSubscribedPerson;
-    //private List<User> clients;
 
     Chat()  {
          allGroups = new ArrayList<>();
@@ -21,9 +20,6 @@ public class Chat {
         User user = new User("Tianyu" , "1234" , "Tianyu111");
         User user2 = new User("Kejia" , "4567" , "Kejia111");
         User user3 = new User("Shuangshuang","8900","Shuangshuang111");
-        //clients.add(user);
-        //clients.add(user2);
-        //clients.add(user3);
 
         groupSubscribedPerson.put(user, new ArrayList<>());
         groupSubscribedPerson.put(user2, new ArrayList<>());

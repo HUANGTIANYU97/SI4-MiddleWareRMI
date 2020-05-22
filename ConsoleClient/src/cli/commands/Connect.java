@@ -4,10 +4,7 @@ import api.PDPublicAPI;
 import cli.commands.messagerie.*;
 import cli.framework.Command;
 import cli.framework.Shell;
-import interfaces.ChatInterface;
-import interfaces.ConnectionInterface;
-import interfaces.Notify;
-import interfaces.StaticInfo;
+import interfaces.*;
 import logging.Logger;
 
 import java.rmi.Naming;
@@ -42,7 +39,9 @@ public class Connect extends Command<PDPublicAPI> {
             Notify notify = new Notify();
             ChatInterface chatInterface;
             ConnectionInterface connectionInterface = ((ConnectionInterface) r);
+            UserPrivateMessageInterface privateInterface = ((UserPrivateMessageInterface) r);
             StaticInfo.setConnectionInterface(connectionInterface);
+            StaticInfo.setPrivateInterface(privateInterface);
             chatInterface = connectionInterface.connect(login, password,notify);
 
             if (chatInterface == null){

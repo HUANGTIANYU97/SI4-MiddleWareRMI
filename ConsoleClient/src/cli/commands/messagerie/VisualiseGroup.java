@@ -63,7 +63,7 @@ public class VisualiseGroup extends Command<PDPublicAPI> {
                    
                   msg="\u001B[47m"+"\u001B[31m"+pseudo + ": " +"\u001B[30m" + s + "\u001B[0m" + "\u001B[40m";
                   StaticInfo.getChatInterface().receiveMessage(msg);
-                  StaticInfo.getChatInterface().notifyMessage(msg);
+                  //StaticInfo.getChatInterface().notifyMessage(msg);
 
                   //Publish the message :
                   //System.out.println("Recu msg"+msg);

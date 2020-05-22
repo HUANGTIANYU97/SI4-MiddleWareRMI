@@ -1,5 +1,7 @@
 package interfaces;
 
+import java.util.Queue;
+
 public class User {
     private String login;
 
@@ -8,6 +10,8 @@ public class User {
     private String pseudo;
 
     private NotifyInterface notify;
+
+    private Queue<String> messages;
 
     public User(String login,String password, String pseudo){
         this.login = login;
