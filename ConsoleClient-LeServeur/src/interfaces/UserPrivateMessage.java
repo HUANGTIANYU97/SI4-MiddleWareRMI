@@ -55,13 +55,13 @@ public class UserPrivateMessage extends UnicastRemoteObject
 
     }
 
-    public void removeMessage(String pseudo) throws RemoteException, InterruptedException{
+    /*public void removeMessage(String pseudo) throws RemoteException, InterruptedException{
         for(User u : Chat.getChat().getAllUser()){
             if(u.getPseudo().equals(pseudo)){
                 u.pollMessage();
             }
         }
-    }
+    }*/
 
     public String notifyConnectedUserPrivateMessage() throws RemoteException, InterruptedException{
         for(User u : Chat.getChat().getAllUser()){
@@ -88,14 +88,13 @@ public class UserPrivateMessage extends UnicastRemoteObject
     public void notifyAllUnreadMessage() throws RemoteException, InterruptedException{
         for(User u : Chat.getChat().getAllUser()){
             if(u.getPseudo().equals(pseudoFrom)){
-                if(u.getMessages().size() > 0){
-                    for(String s : u.getMessages()){
-                        notifyMessage(s,pseudoFrom);
-                    }
+                for(String s : u.getMessages()){
+                    u.getNotify().getNotify(s);
+                    //u.pollMessage();
+                    //u.removeMessage();
                 }
-                u.getMessages().clear();
-                return;
-
+            u.getMessages().clear();
+            return;
             }
         }
     }
