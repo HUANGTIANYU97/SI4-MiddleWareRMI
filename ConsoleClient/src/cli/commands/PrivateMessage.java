@@ -21,7 +21,7 @@ public class PrivateMessage extends Command<PDPublicAPI> {
 
     private String pseudoFrom;
 
-    private boolean exit = false;
+    private boolean exit = true;
 
     @Override
     public String identifier() {
@@ -35,43 +35,46 @@ public class PrivateMessage extends Command<PDPublicAPI> {
 
     @Override
     public void execute() throws Exception {
-        System.out.println("");
-        System.out.println("Taking to "+ pseudoTo +" in private ");
-        System.out.println("Type exit to leave.");
-        System.out.println("");
-        try
-        {
-            java.io.BufferedReader stdin =
-                    new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
-            while (exit)
-            {
-                pseudoFrom = StaticInfo.getPrivateInterface().getPseudoTo(StaticInfo.getLogin());
-                String s = stdin.readLine();
+        if(StaticInfo.getPrivateInterface().ifSendMessage(pseudoTo)) {
+            System.out.println("");
+            System.out.println("Talking to " + pseudoTo + " in private ");
+            System.out.println("Type exit to leave.");
+            System.out.println("");
+            try {
+                java.io.BufferedReader stdin =
+                        new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
+                while (exit) {
+                    pseudoFrom = StaticInfo.getPrivateInterface().getPseudoFrom();
+                    String s = stdin.readLine();
 
 
-                if(s == null){
-                    exit = false;
-                    //exit();
+                    if (s == null) {
+                        exit = false;
+                        //exit();
+                    } else if (s.equals("exit")) {
+                        exit = false;
+                        //exit();
+                    } else if (s.length() > 0) {
+                        String msg = "";
+
+                        msg = "[Private message] " + pseudoFrom + ": " + s;
+                        //StaticInfo.getChatInterface().receiveMessage(msg);
+                        //StaticInfo.getChatInterface().notifyMessage(msg);
+
+                        //Publish the message :
+                        //System.out.println(msg);
+                        StaticInfo.getPrivateInterface().sendMessage(msg,pseudoTo);
+                        StaticInfo.getPrivateInterface().notifyMessage(msg,pseudoTo);
+                        //StaticInfo.getPrivateInterface().removeMessage(pseudoTo);
+                        System.out.println("Ok, message sent to user");
+                    }
                 }
-                else if (s.equals("exit")){
-                    exit = false;
-                    //exit();
-                }
-                else if (s.length()>0)
-                { String msg="";
-
-                    msg="\u001B[47m"+"\u001B[31m"+pseudoFrom + ": " +"\u001B[30m" + s + "\u001B[0m" + "\u001B[40m";
-                    StaticInfo.getChatInterface().receiveMessage(msg);
-                    //StaticInfo.getChatInterface().notifyMessage(msg);
-
-                    //Publish the message :
-                    //System.out.println("Recu msg"+msg);
-                }
+            } catch (java.io.IOException ioe) {
+                ioe.printStackTrace();
             }
         }
-        catch (java.io.IOException ioe)
-        {
-            ioe.printStackTrace();
+        else {
+            System.out.println("Unknown destination");
         }
     }
 

@@ -1,26 +1,102 @@
 package interfaces;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class UserPrivateMessage extends UnicastRemoteObject
         implements UserPrivateMessageInterface{
+
+    private String pseudoFrom;
+    //private List<User> connectedUsers;
+
     protected UserPrivateMessage() throws RemoteException {
+        //connectedUsers = new ArrayList<>();
     }
 
-    public void sendMessage(String pseudo) throws RemoteException, InterruptedException{
+    public UserPrivateMessage(String pseudo) throws RemoteException {
+        pseudoFrom = pseudo;
+        //connectedUsers = new ArrayList<>();
+    }
 
+    public boolean ifSendMessage(String pseudo) throws RemoteException, InterruptedException{
+        for(User u : Chat.getChat().getAllUser()){
+            if(u.getPseudo().equals(pseudo)){
+                /*if(ConnectionObject.getConnectedUsers().contains(u)){
+                    notifyMessage();
+                }*/
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void sendMessage(String message, String pseudo) throws RemoteException, InterruptedException{
+        for(User u : Chat.getChat().getAllUser()){
+            if(u.getPseudo().equals(pseudo)){
+                u.offerMessage(message);
+            }
+        }
     }
 
     public void notifyMessage(String message, String pseudo) throws RemoteException, InterruptedException{
+        for(User u : Chat.getChat().getAllUser()){
+            if(u.getPseudo().equals(pseudo)){
+                if(ConnectionObject.getConnectedUsers().contains(u)){
+                    //add in queue
+                    //notify message
+                    u.getNotify().getNotify(message);
+                    u.pollMessage();
+                    //u.removeMessage();
+                }
+            }
+        }
 
     }
 
-    public String getPseudoTo(String login) throws RemoteException, InterruptedException{
+    public void removeMessage(String pseudo) throws RemoteException, InterruptedException{
         for(User u : Chat.getChat().getAllUser()){
+            if(u.getPseudo().equals(pseudo)){
+                u.pollMessage();
+            }
+        }
+    }
+
+    public String notifyConnectedUserPrivateMessage() throws RemoteException, InterruptedException{
+        for(User u : Chat.getChat().getAllUser()){
+            if(u.getPseudo().equals(pseudoFrom)){
+                if(u.getMessages().size() > 0)
+                    return "There are some private messages";
+            }
+        }
+        return null;
+    }
+
+    public String getPseudoFrom() throws RemoteException, InterruptedException{
+        /*for(User u : Chat.getChat().getAllUser()){
             if(u.getLogin().equals(login)){
                 return u.getPseudo();
             }
         }
-        return null;
+        return null;*/
+        return pseudoFrom;
+    }
+
+    //public void addConnectedUser(User user){connectedUsers.add(user);}
+
+    public void notifyAllUnreadMessage() throws RemoteException, InterruptedException{
+        for(User u : Chat.getChat().getAllUser()){
+            if(u.getPseudo().equals(pseudoFrom)){
+                if(u.getMessages().size() > 0){
+                    for(String s : u.getMessages()){
+                        notifyMessage(s,pseudoFrom);
+                    }
+                }
+                u.getMessages().clear();
+                return;
+
+            }
+        }
     }
 }

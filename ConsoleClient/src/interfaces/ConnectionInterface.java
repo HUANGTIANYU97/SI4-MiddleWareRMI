@@ -10,4 +10,8 @@ public interface ConnectionInterface extends Remote {
     public ChatInterface connect(String user, String password,NotifyInterface notify) throws RemoteException, InterruptedException;//, JMSException;
 
     public void disconnect(String user) throws RemoteException, InterruptedException;
+
+    public UserPrivateMessageInterface getPrivate(String login) throws RemoteException, InterruptedException;
+
+    public String getAllPseudos() throws RemoteException, InterruptedException;
 }

@@ -1,5 +1,6 @@
 package interfaces;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class User {
@@ -17,6 +18,7 @@ public class User {
         this.login = login;
         this.password = password;
         this.pseudo = pseudo;
+        messages = new LinkedList<>();
     }
 
     public String getPseudo() {
@@ -34,4 +36,15 @@ public class User {
     public NotifyInterface getNotify(){return notify;}
 
     public void setNotify(NotifyInterface n){notify = n;}
+
+    public Queue<String> getMessages(){return messages;}
+
+    public void offerMessage(String message){messages.offer(message);}
+
+    public String pollMessage(){
+        return messages.poll();
+        //if empty ,return null
+    }
+
+    public void removeMessage(){messages.remove();}
 }

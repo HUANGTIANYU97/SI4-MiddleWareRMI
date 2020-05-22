@@ -36,10 +36,11 @@ public class Connect extends Command<PDPublicAPI> {
         {
             String address = StaticInfo.getConnection();
             Remote r = Naming.lookup("rmi://" + address + "/Connection");
+            //Remote rPrivage = Naming.lookup("rmi://" + address + "/Connection");
             Notify notify = new Notify();
             ChatInterface chatInterface;
             ConnectionInterface connectionInterface = ((ConnectionInterface) r);
-            UserPrivateMessageInterface privateInterface = ((UserPrivateMessageInterface) r);
+            UserPrivateMessageInterface privateInterface = connectionInterface.getPrivate(login);
             StaticInfo.setConnectionInterface(connectionInterface);
             StaticInfo.setPrivateInterface(privateInterface);
             chatInterface = connectionInterface.connect(login, password,notify);
@@ -56,8 +57,12 @@ public class Connect extends Command<PDPublicAPI> {
 
                 StaticInfo.setChatInterface(chatInterface);
                 String welcome = StaticInfo.getChatInterface().notifyConnectedUserWelcome();
+                String welcomePrivate = StaticInfo.getPrivateInterface().notifyConnectedUserPrivateMessage();
                 if(welcome != null){
                     System.out.println(welcome);
+                }
+                if(welcomePrivate != null){
+                    System.out.println(welcomePrivate);
                 }
 
                 Shell<PDPublicAPI> shell = new Shell<>();
@@ -65,9 +70,12 @@ public class Connect extends Command<PDPublicAPI> {
                 shell.invite = "Discord";
                 shell.register(
                         //Quit.class,
-                        GetListGroup.class,
-                        GetMyListGroup.class,
-                        VisualiseGroup.class
+                        //GetListGroup.class,
+                        //GetMyListGroup.class,
+                        VisualiseGroup.class,
+                        AllRegisters.class,
+                        ShowPrivateMessages.class,
+                        PrivateMessage.class
                         //JoinGroup.class
                 );
                 shell.run();

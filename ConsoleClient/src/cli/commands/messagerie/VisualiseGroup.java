@@ -24,7 +24,8 @@ public class VisualiseGroup extends Command<PDPublicAPI> {
 
     @Override
     public void load(List<String> args) {
-        this.idTopic = args.get(0);
+        //this.idTopic = args.get(0);
+        this.idTopic = "1";
     }
 
     @Override
@@ -78,7 +79,7 @@ public class VisualiseGroup extends Command<PDPublicAPI> {
 
     @Override
     public String describe() {
-        return "Connect to a topic, see its messages and send messages to it. Arguments: topic id. Type exit to leave.";
+        return "Connect to a topic, see its messages and send messages to it. No arguments. Type exit to leave.";
     }
 
 
