@@ -9,6 +9,10 @@ public class Notify extends UnicastRemoteObject implements NotifyInterface{
 
     @Override
     public void getNotify(String message) throws RemoteException, InterruptedException {
-        System.out.println(message);
+        int i = StaticInfo.getLogin().length();
+        if(message.substring(0,i).equals(StaticInfo.getLogin())){
+            System.out.println("\033[31;4m" + message + "\033[0m");
+        }
+        else System.out.println(message);
     }
 }

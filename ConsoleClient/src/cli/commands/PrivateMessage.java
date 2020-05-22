@@ -57,7 +57,8 @@ public class PrivateMessage extends Command<PDPublicAPI> {
                     } else if (s.length() > 0) {
                         String msg = "";
 
-                        msg = "[Private message] " + pseudoFrom + ": " + s;
+                        msg = "\033[32;4m" + "[Private message] " + pseudoFrom + ": " + s + "\033[0m";
+
                         //StaticInfo.getChatInterface().receiveMessage(msg);
                         //StaticInfo.getChatInterface().notifyMessage(msg);
 

@@ -62,7 +62,7 @@ public class VisualiseGroup extends Command<PDPublicAPI> {
                 else if (s.length()>0)
                 { String msg="";
                    
-                  msg="\u001B[47m"+"\u001B[31m"+pseudo + ": " +"\u001B[30m" + s + "\u001B[0m" + "\u001B[40m";
+                  msg=pseudo + ": " + s;
                   StaticInfo.getChatInterface().receiveMessage(msg);
                   //StaticInfo.getChatInterface().notifyMessage(msg);
 

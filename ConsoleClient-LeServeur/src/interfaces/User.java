@@ -14,11 +14,14 @@ public class User {
 
     private Queue<String> messages;
 
+    private boolean clear;
+
     public User(String login,String password, String pseudo){
         this.login = login;
         this.password = password;
         this.pseudo = pseudo;
         messages = new LinkedList<>();
+        clear = false;
     }
 
     public String getPseudo() {
@@ -47,4 +50,12 @@ public class User {
     }
 
     public void removeMessage(){messages.remove();}
+
+    public void clear(){
+        clear = true;
+        messages.clear();
+        clear = false;
+    }
+
+    public boolean getClear(){return clear;}
 }

@@ -18,4 +18,5 @@ public interface UserPrivateMessageInterface extends Remote{
 
     //public void removeMessage(String pseudo) throws RemoteException, InterruptedException;
 
+
 }

@@ -3,11 +3,30 @@
   <component name="ChangeListManager">
     <list default="true" id="f5a44f8e-9eb3-4fda-a339-fec56f43cc54" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/ChatObject$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/ChatObject$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/ChatObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/ChatObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/UserPrivateMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/out/production/ConsoleClient-LeServeur/interfaces/UserPrivateMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/LaunchServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/Chat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/ChatInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/ChatObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/ChatObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/ChatObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/ConnectionInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/ConnectionObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/MessageManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/NotifyInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/UserPrivateMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/UserPrivateMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/UserPrivateMessageInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleClient-LeServeur/src/interfaces/UserPrivateMessageInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/cli/commands/PrivateMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/cli/commands/PrivateMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/UserPrivateMessageInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/UserPrivateMessageInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cli/commands/messagerie/VisualiseGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/cli/commands/messagerie/VisualiseGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/interfaces/Notify.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/interfaces/Notify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/commands/PrivateMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/commands/PrivateMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/commands/messagerie/VisualiseGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/commands/messagerie/VisualiseGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/Notify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/Notify.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +61,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -257,7 +276,7 @@
       <workItem from="1590004504574" duration="2395000" />
       <workItem from="1590007248795" duration="47000" />
       <workItem from="1590007578781" duration="5213000" />
-      <workItem from="1590104990346" duration="18699000" />
+      <workItem from="1590104990346" duration="23552000" />
     </task>
     <servers />
   </component>
